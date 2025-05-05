@@ -127,8 +127,5 @@ Le projet suit une structure Maven standard pour les applications web :
 *   `schema.sql`: Script SQL pour la création de la base de données.
 *   `README.md`: Ce fichier.
 
-## Auteurs
-
-*   Manus (AI Agent)
 
 
