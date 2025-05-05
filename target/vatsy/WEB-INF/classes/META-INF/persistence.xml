@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.1" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+  <persistence-unit name="consommationDeauPU" transaction-type="JTA">
+    <description>
+            Persistence unit for the ConsommationDeau application
+        </description>
+    <!-- Le JTA data source sera configuré dans WildFly -->
+    <jta-data-source>java:jboss/datasources/ConsommationDeauDS</jta-data-source>
+    <!-- Liste explicite des classes d'entités (sera remplie plus tard) -->
+    <!--
+        <class>com.example.consommationdeau.model.Utilisateur</class>
+        <class>com.example.consommationdeau.model.Categorie</class>
+        <class>com.example.consommationdeau.model.Consommation</class>
+        -->
+    <properties>
+      <!-- Propriétés spécifiques à Hibernate -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <!-- Affiche les requêtes SQL générées (utile pour le débogage) -->
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+      <!-- Stratégie de génération du schéma (options: none, create, drop-and-create, update, validate) -->
+      <!-- 'update' tente de mettre à jour le schéma existant. 'validate' vérifie la correspondance. -->
+      <!-- 'create' ou 'drop-and-create' peut être utile en développement, mais dangereux en production. -->
+      <!-- Pour ce projet, nous fournirons un script SQL séparé, donc 'validate' ou 'none' est préférable. -->
+      <property name="jakarta.persistence.schema-generation.database.action" value="validate"/>
+      <!-- <property name="jakarta.persistence.schema-generation.database.action" value="none"/> -->
+      <!-- Autres propriétés utiles -->
+<!--       <property name="hibernate.hbm2ddl.auto" value="validate" /> -->
+      <!-- Ancienne propriété remplacée par jakarta.persistence... -->
+      <property name="hibernate.jdbc.lob.non_contextual_creation" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>
